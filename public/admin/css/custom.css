@@ -1,0 +1,28 @@
+.category-image{
+    width: 165px;
+    height: 100px;
+    margin: auto;
+    display: block;
+}
+
+.action{
+    margin: auto;
+    display: block;
+}
+
+.form-select{
+    display: block;
+    padding: .375rem 65rem .375rem  .75rem;
+    font-size: 1rem;
+    font-weight: 4oo;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 16px 12px;
+    border:  1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: non;
+}
