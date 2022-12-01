@@ -18,10 +18,28 @@
     <link href={{asset('cms/css/custom.css')}} rel="stylesheet" /> 
     <link href={{asset('cms/css/bootstrap.css')}} rel="stylesheet" />
 
-    {{-- <link href={{asset('admin/css/material-dashboard.css?v=2.1.2')}} rel="stylesheet" //?v=2.1.2  ?v=2.1.2 /> --}}
-
     <link href={{asset('css/owl.carousel.min.css')}} rel="stylesheet" />
     <link href={{asset('css/owl.theme.default.min.css')}} rel="stylesheet" />
+
+
+    {{-- Font awesom --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Romanesco&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
+
+    <style>
+        a{
+            text-decoration: none !important;
+        }
+    </style>
+
+
+    {{-- <link href={{asset('admin/css/material-dashboard.css?v=2.1.2')}} rel="stylesheet" //?v=2.1.2  ?v=2.1.2 /> --}}
+
+    
 
 
 

@@ -6,11 +6,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <li class="nav-item"  class="float-start">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('category')}}">Category</a>
+          <li class="nav-item" class="float-start">
+            <a class="nav-link" href="{{url('category')}}" >Category</a>
           </li>
         </ul>
       </div>

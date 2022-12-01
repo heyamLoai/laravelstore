@@ -97,9 +97,12 @@ class ProductController extends Controller
     public function destroy($id){
         $products = Product::find($id);
         $path = 'assets/uploads/products'.$products->image;
-          if(File::exists($path))
-          {
-            File::delete($path);
+          if($products->image){
+            $path = 'assets/uploads/products'.$products->image;
+            if(File::exists($path))
+            {
+              File::delete($path);
+            }
           }
         $products->delete();
         return redirect('products')->with('status',"Product Deleted Successfully");

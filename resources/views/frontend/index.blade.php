@@ -36,6 +36,7 @@
             <h3>Trending Stores</h3>
             @foreach ($trending_category as $tcategory )
             <div class="col-md-3 mt=3">
+                <a  href="{{ url('view-category/' .$tcategory->slug )}}" >
                 <div class="card">
                     <img src="{{asset('assets/uploads/category/' .$tcategory->image)}}" alt="Product image">
                     <div class="card-body">
@@ -45,6 +46,7 @@
                         </p>
                     </div>
                 </div>
+            </a>
             </div>
             @endforeach
            
