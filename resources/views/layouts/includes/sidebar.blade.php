@@ -18,7 +18,7 @@
       <li class="nav-item {{Request::is('categories') ? 'active': ''}} ">
         <a class="nav-link" href="{{url('categories')}}">
           <i class="material-icons">person</i>
-          <p>Categories</p>
+          <p>Stores</p>
         </a>
       </li>
       <li class="nav-item {{Request::is('add-category')? 'active': ''}}">
