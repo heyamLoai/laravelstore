@@ -43,9 +43,9 @@
                 <div class="col-md-2">
                     <label for="Quantity">Quantity </label>
                     <div class="input-group text-center mb-3">
-                        <span class="input-group-text">-</span>
-                        <input type="text" name="quantity" value="1" class="form-control"/>
-                        <span class="input-group-text">+</span>
+                        <span class="input-group-text decrement-btn">-</span>
+                        <input type="text" name="quantity " value="1" class="form-control text-center qtn-input"/>
+                        <span class="input-group-text increment-btn">+</span>
                     </div>
                 </div>
                 <div class="col-md-10">
@@ -58,7 +58,7 @@
        </div>
        <div class="col-md-12">
         <hr>
-        <h3>Describtion</h3>
+        <h3>Description</h3>
         <p class="mt-3">
             {!! $products->descriptuin !!}
         </p>
@@ -66,4 +66,25 @@
     </div>
 </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function(){
+       $('.increment-btn').click(function (e){
+            e.preventDefault();
+
+            var inc_val = $('qtn-input').val();
+            var value = parseInt(inc_val, 10);
+            value = isNaN(value) ? 0 : value; // is not a number
+
+            if(value  < 10){
+                value++;
+                $('qtn-input').val(value);
+            }
+       });
+ 
+    });
+
+</script>
 @endsection
