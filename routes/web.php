@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\CartController;
+
 
 
 
@@ -32,12 +34,25 @@ Route::get('category','App\Http\Controllers\Frontend\FrontendController@category
 Route::get('view-category/{slug}','App\Http\Controllers\Frontend\FrontendController@viewcategory');
 Route::get('category/{cate_slug}/{prod_slug}','App\Http\Controllers\Frontend\FrontendController@productview');
 
+
+Route::post('add-to-cart', [CartController::class ,'addProduct']);
+Route::post('delete-cart-item',[CartController::class ,'deleteproduct']);
+Route::post('update-cart',[CartController::class ,'updatecart']);
+
+
+
+Route::middleware(['auth'])->group( function(){
+    Route::get('cart', 'App\Http\Controllers\Frontend\CartController@viewcart')->name('cart');
+});
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Route::get('dashboard', function () {

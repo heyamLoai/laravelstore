@@ -15,7 +15,7 @@
             @foreach ($featured_products as $prod )
             <div class="col-md-3 mb-3">
                 <div class="card">
-                    <img src="{{asset('assets/uploads/products/' .$prod->image)}}" alt="Product image">
+                    <img src="{{asset('assets/uploads/products/' .$prod->image)}}" height="230px" width="260px" alt="Product image">
                     <div class="card-body">
                         <h5>{{$prod->name}}</h5>
                         <span class="float-start">{{$prod->selling_price}}</span>
@@ -38,7 +38,7 @@
             <div class="col-md-3 mt=3">
                 <a  href="{{ url('view-category/' .$tcategory->slug )}}" >
                 <div class="card">
-                    <img src="{{asset('assets/uploads/category/' .$tcategory->image)}}" alt="Product image">
+                    <img src="{{asset('assets/uploads/category/' .$tcategory->image)}}" height="230px" width="260px" alt="Product image">
                     <div class="card-body">
                         <h5>{{$tcategory->name}}</h5>
                         <p> 
@@ -78,8 +78,8 @@
 @endsection
 
 
-
-{{-- @section('content')
+{{-- 
+@section('content')
 @include('layouts.includes.slider')
 
 <div class="py-5">
@@ -104,5 +104,4 @@
         </div>
     </div>
 </div>
-@endsection
- --}}
+@endsection --}}

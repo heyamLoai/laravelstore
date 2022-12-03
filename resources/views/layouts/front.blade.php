@@ -36,15 +36,7 @@
         }
     </style>
 
-
     {{-- <link href={{asset('admin/css/material-dashboard.css?v=2.1.2')}} rel="stylesheet" //?v=2.1.2  ?v=2.1.2 /> --}}
-
-    
-
-
-
-    
-
 </head>
 <body>
    
@@ -58,6 +50,15 @@
     <script src={{asset('cms/js/bootstrap.bundle.min.js')}}></script>
     <script src={{asset('cms/js/jquery-3.6.1.min.js')}}></script>
     <script src={{asset('cms/js/owl.carousel.min.js')}}></script>
+
+    <script>
+       let  cart_url="{{route('cart')}}";
+        </script>
+    <script src={{asset('cms/js/custom.js')}}></script>
+
+    {{-- <link rel="stylesheet" href="{{ URL::asset('cms/js/custom.js') }}" />
+    <script type="text/javascript" src="{{ URL::asset('cms/js/custom.js') }}"></script> --}}
+
 
 
 

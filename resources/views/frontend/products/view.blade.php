@@ -4,17 +4,28 @@
 
 @section('content')
 <br>
+
 <div class="div" class="py-3 mb-4 shadow-sm bg-warning border-top">
-    <div class="container">
-        <h6 class="mb-0"> Collections /{{$products->category->name}}/ {{ $products->name}}</h6>
+    <div class="container ">
+        <h6 class="mb-0" >
+         <a href="{{url('category')}}" style="-webkit-text-fill-color: black">  
+            Collection  
+         </a> /
+         <a href="{{url('category/' .$products->category->slug) }}">  
+            {{$products->category->name}}  
+        </a> /
+        <a href="{{url('category/' .$products->category->slug . '/' .$products->slug) }}">  
+            {{$products->name}}  
+        </a>  
+            {{-- Collections /{{$products->category->name}}/ {{ $products->name}} --}}
+        </h6>
     </div>
 </div>
-<br>
 
-<div class="container">
-    <div class="card shadow">
+<div class="container my-5">
+    <div class="card shadow product_data">
        <div class="card-body">
-           <div class="row">
+           <div class="row product_data">
             <div class="col-md-4 border-right">
                 <img src="{{ asset('assets/uploads/products/' .$products->image)}}" class="w-100" alt="">
             </div>
@@ -25,8 +36,6 @@
                 <label style="font-size: 16px;" class="float-end badge bg-danger trending_tag">Trending</label>
                 @endif
             </h2>
-
-
             <hr>
             <label class="me-3"> Original Price: <s>$ {{$products->original_price}} </s></label>
             <label class="fw-bold"> Selling Price: $ {{$products->selling_price}} </s></label>
@@ -40,18 +49,19 @@
             <label class="badge bg-success "> Out of stock</label>
             @endif
             <div class="row mt-2">
-                <div class="col-md-2">
+                <div class="col-md-3">
+                    <input type="hidden"  value="{{ $products->id }}" class="prod_id">
                     <label for="Quantity">Quantity </label>
                     <div class="input-group text-center mb-3">
-                        <span class="input-group-text decrement-btn">-</span>
-                        <input type="text" name="quantity " value="1" class="form-control text-center qtn-input"/>
-                        <span class="input-group-text increment-btn">+</span>
+                        <button class="input-group-text decrement-btn" >-</button>
+                        <input type="text" name="quantity " value="1" class="form-control qtn-input text-center"/>
+                        <button class="input-group-text increment-btn" >+</button>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <br/>
-                    <button type="button" class="btn btn-success "> Add to wishlist <i class="fa fa-heart"></i></button>
-                    <button type="button" class="btn btn-primary "> Add to cart <i class="fa fa-shopping-cart"></i> </button>
+                    <button type="button" class="btn btn-primary me-3 addToCartbtn "> Add to cart <i class="fa fa-shopping-cart"></i> </button>
+                    <button type="button" class="btn btn-success me-3 "> Add to wishlist <i class="fa fa-heart"></i></button>
                 </div>
              </div>
            </div>
@@ -68,23 +78,3 @@
 </div>
 @endsection
 
-@section('scripts')
-<script>
-    $(document).ready(function(){
-       $('.increment-btn').click(function (e){
-            e.preventDefault();
-
-            var inc_val = $('qtn-input').val();
-            var value = parseInt(inc_val, 10);
-            value = isNaN(value) ? 0 : value; // is not a number
-
-            if(value  < 10){
-                value++;
-                $('qtn-input').val(value);
-            }
-       });
- 
-    });
-
-</script>
-@endsection
