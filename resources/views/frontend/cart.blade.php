@@ -13,9 +13,9 @@
          <a href="{{url('/')}}">  
             Home  
          </a> /
-         <a href="{{url('cart')}}">  
+         <a href="{{ url('cart' )}}">  
             Cart
-        </a> /
+        </a> 
         </h6>
     </div>
 </div>
@@ -50,7 +50,6 @@
                 </div>
             </div>  
             @php $total += $item->products->selling_price * $item ->prod_qty ; @endphp
-  
             @endforeach
         </div>
         <div class="card-footer">

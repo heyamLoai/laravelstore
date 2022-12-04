@@ -51,9 +51,9 @@
     <script src={{asset('cms/js/jquery-3.6.1.min.js')}}></script>
     <script src={{asset('cms/js/owl.carousel.min.js')}}></script>
 
-    <script>
-       let  cart_url="{{route('cart')}}";
-        </script>
+    {{-- <script>
+    //    let  cart_url="{{route('cart')}}";
+        </script> --}}
     <script src={{asset('cms/js/custom.js')}}></script>
 
     {{-- <link rel="stylesheet" href="{{ URL::asset('cms/js/custom.js') }}" />

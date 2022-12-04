@@ -5,15 +5,13 @@ $(document).ready(function() {
            
         var product_id = $(this).closest('.product_data').find('.prod_id').val();
         var product_qty = $(this).closest('.product_data').find('.qtn-input').val();
-        console.log(product_id,product_qty)
+        // console.log(product_id,product_qty)
 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
-
 
         $.ajax({
          method: "POST",
@@ -24,11 +22,8 @@ $(document).ready(function() {
 
          },
          success: function(response){
-            // alert(response.message);
-            if(response.status == true){
-                window.location.href=cart_url;
-
-            }
+            swal(response.status);
+          
          }
         });
 
@@ -57,14 +52,14 @@ $(document).ready(function() {
         e.preventDefault();
 
         var dec_value = $(this).closest('.product_data').find('.qtn-input').val();
-
         var value = parseInt(dec_value, 10);
         value = isNaN(value) ? 0 : value; // is not a number
 
-        if(value > 1){
+        if(value > 1)
+         {
             value--;
             $(this).closest('.product_data').find('.qtn-input').val(value);
-        }
+         }
    });
 
    
@@ -76,8 +71,6 @@ $(document).ready(function() {
 
    $('.delete-cart-item').click(function (e){
     e.preventDefault();
-
-
      var prod_id =  $(this).closest('.product_data').find('.prod_id').val();
 
      $.ajax({
@@ -89,7 +82,7 @@ $(document).ready(function() {
         },
         success: function(response){
             window.location.reload();
-           swal("",response.message , "success");
+           swal("",response.status , "success");
         }
        });
 
