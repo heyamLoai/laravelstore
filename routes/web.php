@@ -46,7 +46,7 @@ Route::post('update-cart',[CartController::class ,'updatecart']);
 
 Route::middleware(['auth'])->group( function(){
     Route::get ('cart', 'App\Http\Controllers\Frontend\CartController@viewcart');
-    Route::get ('checkout', 'App\Http\Controllers\Frontend\CartController@index');
+    Route::get ('checkout', 'App\Http\Controllers\Frontend\CheckoutController@index');
 
     // ->name('cart');
 });
