@@ -44,10 +44,11 @@
             </p>
             <hr>
             @if ($products->quantity > 0)
-            <label class="badge bg-success "> In stock</label>
+                 <label class="badge bg-success "> In stock</label>
             @else
-            <label class="badge bg-success "> Out of stock</label>
+                 <label class="badge bg-success "> Out of stock</label>
             @endif
+
             <div class="row mt-2">
                 <div class="col-md-3">
                     <input type="hidden"  value="{{ $products->id }}" class="prod_id">
@@ -60,11 +61,14 @@
                 </div>
                 <div class="col-md-9">
                     <br/>
-                    <button type="button" class="btn btn-primary me-3 addToCartbtn "> Add to cart <i class="fa fa-shopping-cart"></i> </button>
-                    <button type="button" class="btn btn-success me-3 "> Add to wishlist <i class="fa fa-heart"></i></button>
+                        @if ($products->quantity > 0)
+                            <button type="button" class="btn btn-primary me-3 addToCartbtn float-start "> Add to cart <i class="fa fa-shopping-cart"></i> </button>
+                        @endif
+                    <button type="button" class="btn btn-success me-3 float-start "> Add to wishlist <i class="fa fa-heart"></i></button>
                 </div>
              </div>
            </div>
+
        </div>
        <div class="col-md-12">
         <hr>

@@ -42,28 +42,14 @@ Route::post('delete-cart-item',[CartController::class ,'deleteproduct']);
 Route::post('update-cart',[CartController::class ,'updatecart']);
 
 
-
-
 Route::middleware(['auth'])->group( function(){
     Route::get ('cart', 'App\Http\Controllers\Frontend\CartController@viewcart');
     Route::get ('checkout', 'App\Http\Controllers\Frontend\CheckoutController@index');
+    Route::post ('place-oreder', 'App\Http\Controllers\Frontend\CheckoutController@placeoreder');
 
-    // ->name('cart');
 });
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-// Route::get('dashboard', function () {
-//     return view('admin.index');
-// });
 
 Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('dashboard', 'App\Http\Controllers\Admin\FrontecndController@index');
