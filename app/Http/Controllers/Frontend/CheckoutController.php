@@ -32,6 +32,7 @@ class CheckoutController extends Controller
     public  function placeoreder(Request $request)
     {
         $order = new Order();
+        $order->user_id = Auth::id();
         $order->fname = $request->input('fname');
         $order->lname = $request->input('lname');
         $order->email = $request->input('email');
@@ -44,7 +45,6 @@ class CheckoutController extends Controller
         $order->tracking_no = 'Heyam '.rand(1000,9999);
         $order->save();
 
-        $order->id;
 
         $cartitems = Cart::where('user_id' , Auth::id())->get();
         foreach($cartitems as $item )
@@ -55,6 +55,11 @@ class CheckoutController extends Controller
                 'quantity' => $item->prod_qty,
                 'price' => $item->products->selling_price,
             ]);
+
+            $prod = Product::where('id' , $item->prod_id)->first();
+            $prod->quantity = $prod->quantity - $item->prod_qty;
+            $prod->update() ;
+
         }
 
         if(Auth::user()->address == Null)
@@ -71,6 +76,11 @@ class CheckoutController extends Controller
             $user->pincode = $request->input('pincode'); 
             $user->update();
         }
+        $cartitems = Cart::where('user_id' , Auth::id())->get();
+        Cart::destroy($cartitems);
+
+
+        return redirect('/')->with('status', "Order placed Successfully");
     }
 }
 
