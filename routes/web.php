@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\CheckoutController;
+
 
 
 
@@ -44,6 +46,8 @@ Route::post('update-cart',[CartController::class ,'updatecart']);
 
 Route::middleware(['auth'])->group( function(){
     Route::get ('cart', 'App\Http\Controllers\Frontend\CartController@viewcart');
+    Route::get ('checkout', 'App\Http\Controllers\Frontend\CartController@index');
+
     // ->name('cart');
 });
 
