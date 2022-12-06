@@ -18,14 +18,14 @@
  }
 
  .order-details label{
-   font-size:  12px;
-   font-weight: 700px ;
+   font-size:  20px;
+   font-weight: 900px ;
  }
 
  .order-details div{
    font-size: 14px;
    padding: 5px !important;
-   margin-bottom: 6px;
+   /* margin-bottom: 15px; */
  }
 
  .Search-bar{

@@ -46,7 +46,7 @@
             @if ($products->quantity > 0)
                  <label class="badge bg-success "> In stock</label>
             @else
-                 <label class="badge bg-success "> Out of stock</label>
+                 <label class="badge bg-danger "> Out of stock</label>
             @endif
 
             <div class="row mt-2">

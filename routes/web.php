@@ -51,6 +51,7 @@ Route::middleware(['auth'])->group( function(){
     Route::post ('place-oreder', 'App\Http\Controllers\Frontend\CheckoutController@placeoreder');
     Route::get('my-orders',[UserController::class ,'index']);
     Route::get('view-order/{id}',[UserController::class ,'view']);
+    
 
 
 });

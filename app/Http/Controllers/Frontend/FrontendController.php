@@ -76,15 +76,15 @@ class FrontendController extends Controller{
         if($search_product != "")
         {
             $product = Product::where("name", "LIKE" , "%search_product&")->first();
-            dd($product);
-            // if($product)
-            // {
-            //     return redirect('category/' .$product->category->name.'/'.$product->name);
-            // }
-            // else
-            // {
-            //     return redirect()->back()->with("status","No Product match with your search");
-            // }
+            // dd($product);
+            if($product)
+            {
+                return redirect('category/' .$product->category->name.'/'.$product->name);
+            }
+            else
+            {
+                return redirect()->back()->with("status","No Product match with your search");
+            }
         }
         else
         {
