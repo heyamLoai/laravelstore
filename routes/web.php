@@ -7,6 +7,9 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Frontend\UserControllerr;
+
 
 
 
@@ -46,8 +49,14 @@ Route::middleware(['auth'])->group( function(){
     Route::get ('cart', 'App\Http\Controllers\Frontend\CartController@viewcart');
     Route::get ('checkout', 'App\Http\Controllers\Frontend\CheckoutController@index');
     Route::post ('place-oreder', 'App\Http\Controllers\Frontend\CheckoutController@placeoreder');
+    Route::get('my-orders',[UserController::class ,'index']);
+    Route::get('view-order/{id}',[UserController::class ,'view']);
+
 
 });
+
+Route::get('product-list',[FrontendController::class, 'productlistAjax']);
+Route::post('searchproduct',[FrontendController::class, 'searchproduct']);
 
 Auth::routes();
 
@@ -68,12 +77,5 @@ Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('edit-product/{id}','App\Http\Controllers\Admin\ProductController@edit');
     Route::Put('update-product/{id}','App\Http\Controllers\Admin\ProductController@update');
     Route::get('delete-product/{id}','App\Http\Controllers\Admin\ProductController@destroy');
-
-
-
-    
-
-
-
 
 }); 

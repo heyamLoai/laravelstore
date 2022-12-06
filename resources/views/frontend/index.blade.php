@@ -38,7 +38,7 @@
             <div class="col-md-3 mt=3">
                 <a  href="{{ url('view-category/' .$tcategory->slug )}}" >
                 <div class="card">
-                    <img src="{{asset('assets/uploads/category/' .$tcategory->image)}}" height="230px" width="260px" alt="Product image">
+                    <img src="{{asset('assets/uploads/category/' .$tcategory->image)}}" height="230px" width="260spx" alt="Product image">
                     <div class="card-body">
                         <h5>{{$tcategory->name}}</h5>
                         <p> 

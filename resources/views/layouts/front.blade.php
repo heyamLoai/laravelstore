@@ -14,6 +14,8 @@
     
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
 
     <link href={{asset('cms/css/custom.css')}} rel="stylesheet" /> 
     <link href={{asset('cms/css/bootstrap.css')}} rel="stylesheet" />
@@ -26,7 +28,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Romanesco&display=swap" rel="stylesheet">
-
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
 
@@ -50,19 +51,42 @@
     <script src={{asset('cms/js/bootstrap.bundle.min.js')}}></script>
     <script src={{asset('cms/js/jquery-3.6.1.min.js')}}></script>
     <script src={{asset('cms/js/owl.carousel.min.js')}}></script>
-
-    {{-- <script>
-    //    let  cart_url="{{route('cart')}}";
-        </script> --}}
     <script src={{asset('cms/js/custom.js')}}></script>
 
-    {{-- <link rel="stylesheet" href="{{ URL::asset('cms/js/custom.js') }}" />
-    <script type="text/javascript" src="{{ URL::asset('cms/js/custom.js') }}"></script> --}}
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
+    <script>
+       
+          var availableTags = [];
 
+          $.ajax({
+        method: "GET",
+        url: "/product-list",
+        success: function(response){
+        //    console.log(response);
+           startAutoComplete(response);
+        }
+       }); 
+
+          function startAutoComplete(availableTags) {
+
+            $( "#search_product" ).autocomplete({
+             source: availableTags
+          });
+
+          }
+        
+        </script>
 
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+
+
+
+
 
     @if(session('status'))
     <script>swal("{{ session('status') }}");  </script>

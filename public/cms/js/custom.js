@@ -104,7 +104,7 @@ $(document).ready(function() {
         data: data, 
         success: function(response){
             // alert(response);
-            window.location.reload();
+             window.location.reload();
         }
        });
 

@@ -42,8 +42,7 @@ class FrontendController extends Controller{
       
     }
 
-    public function productview($cate_slug,$prod_slug)
-    {
+    public function productview($cate_slug,$prod_slug) {
         if(Category::where('slug', $cate_slug)->exists())
         {
             // $products=  Product::where('slug', $prod_slug)->get();
@@ -59,7 +58,39 @@ class FrontendController extends Controller{
          return redirect('/')->with('status' , "No such Category Found ");
     }
 }
+    public function productlistAjax (){
+        $products = Product::select('name')->where('status' , '0')->get();
 
+        $data = [];
+
+        foreach($products  as $item){
+            $data[] = $item['name'];
+        }
+
+        return $data;
+    }
+
+    public function searchproduct(Request $request){
+        $search_product = $request->product_name;
+
+        if($search_product != "")
+        {
+            $product = Product::where("name", "LIKE" , "%search_product&")->first();
+            dd($product);
+            // if($product)
+            // {
+            //     return redirect('category/' .$product->category->name.'/'.$product->name);
+            // }
+            // else
+            // {
+            //     return redirect()->back()->with("status","No Product match with your search");
+            // }
+        }
+        else
+        {
+            return redirect()->back();
+        }
+    }
 
 }
 

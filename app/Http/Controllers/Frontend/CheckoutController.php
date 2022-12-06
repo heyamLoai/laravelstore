@@ -42,6 +42,19 @@ class CheckoutController extends Controller
         $order->state = $request->input('state');
         $order->country = $request->input('country');
         $order->pincode = $request->input('pincode');
+        // $order->total_price = $request->input('total_price');
+
+
+        // $order->pincode = $request->input('total_price');
+
+        $total = 0; 
+        $cartitems_total = Cart::where('user_id', Auth::id())->get();
+        foreach($cartitems_total as $prod)
+        {
+            $total += $prod->products->selling_price;
+        }
+        $order->total_price = $total;
+
         $order->tracking_no = 'Heyam '.rand(1000,9999);
         $order->save();
 
@@ -73,7 +86,8 @@ class CheckoutController extends Controller
             $user->city = $request->input('city');
             $user->state = $request->input('state');
             $user->country = $request->input('country');
-            $user->pincode = $request->input('pincode'); 
+            $user->pincode = $request->input('pincode');
+            
             $user->update();
         }
         $cartitems = Cart::where('user_id' , Auth::id())->get();
