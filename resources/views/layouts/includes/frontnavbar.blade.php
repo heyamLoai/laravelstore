@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light"  >
-    <div class="container" >
-      {{-- <a class="navbar-brand" href="{{url('/')}}">Shopping</a> --}}
+    <div class="container-fluid" >
+      <a class="navbar-brand" href="{{url('/')}}" style="padding-left: 75px">Shopping</a>
       
 
     <div class="Search-bar">
@@ -44,6 +44,28 @@
           @else  
 
           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{Auth::user()->name}}
+            </a>
+
+            <ul class="dropdown-menu dropdown">
+              <li><a class="dropdown-item" href="{{ url('my-orders')}}"> My Orders</a></li>
+              <li><a class="dropdown-item" href="#">My Profile</a></li>   <li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>   <li>
+                {{-- <a class="dropdwon-item" href="{{ route('logout')}}" onclick="event.preventDefault();">
+                  {{__('Logout')}}
+                </a>
+
+                <form id="logout-form" action="{{route('logout')}}" method="POST" class="d-none">
+                @csrf
+                </form> --}}
+            </ul>
+
+
+          </li>
+
+{{-- 
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  href="#" id="navbarDropdown" role="button">
                 {{Auth::user()->name}}
             </a>
@@ -71,10 +93,13 @@
               </li>
 
             </ul>
-          </li>
+          </li> --}}
           @endguest
           
         </ul>
       </div>
+
+
+      
     </div>
   </nav>

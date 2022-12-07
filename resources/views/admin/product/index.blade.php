@@ -26,7 +26,7 @@
                         <td>{{$item->category->name ?? 'non'}}</td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->selling_price}}</td>
-                        <td><img src="{{asset('assets/uploads/products/' .$item->image)}}" class="category-image" alt="Image here "></td>
+                        <td><img src="{{asset('assets/uploads/products/' .$item->image)}}" style="height: 140px; width:150px" class="category-image" alt="Image here "></td>
                         <td>
                             <a  href= "{{url('edit-product/' .$item->id)}}" class="btn btn-primary btn-center">Edit</a>
                             <a href= "{{URL('delete-product/' .$item->id)}}" class="btn btn-danger btn-center">Delete</a>

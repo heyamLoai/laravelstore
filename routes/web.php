@@ -8,7 +8,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\UserController;
-use App\Http\Controllers\Frontend\UserControllerr;
+use App\Http\Controllers\Admin\OrderController;
 
 
 
@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group( function(){
     Route::post ('place-oreder', 'App\Http\Controllers\Frontend\CheckoutController@placeoreder');
     Route::get('my-orders',[UserController::class ,'index']);
     Route::get('view-order/{id}',[UserController::class ,'view']);
-    
+
 
 
 });
@@ -78,5 +78,15 @@ Route::middleware(['auth','isAdmin'])->group(function(){
     Route::get('edit-product/{id}','App\Http\Controllers\Admin\ProductController@edit');
     Route::Put('update-product/{id}','App\Http\Controllers\Admin\ProductController@update');
     Route::get('delete-product/{id}','App\Http\Controllers\Admin\ProductController@destroy');
+
+    Route::get('users',[FrontendController::class, 'users']);
+    Route::get('orders',[OrderController::class, 'index']);
+    Route::get('admin/view-order/{id}',[OrderController::class, 'view']);
+    Route::put('update-order/{id}',[OrderController::class, 'updateorder']);
+    Route::get('order-history',[OrderController::class, 'orderhistory']);
+
+
+
+
 
 }); 

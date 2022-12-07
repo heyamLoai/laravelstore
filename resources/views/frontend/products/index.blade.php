@@ -10,7 +10,7 @@
         <h6 class="mb-0"> Collections /{{$category->name}}</h6>
     </div>
 </div>  
-
+{{--  --}}
 <div class="py-5"> 
     <div class="container ">
         <div class="row">
@@ -19,7 +19,7 @@
                   <div class="col-md-3 mb-3">
                     <div class="card">
                         <a href="{{url('category/'. $category->slug. '/' .$prod->slug )}}">
-                        <img src="{{asset('assets/uploads/products/' .$prod->image)}}" height="230px" width="260px" alt="Product image">
+                        <img src="{{asset('assets/uploads/products/' .$prod->image)}}" style="height:300px; width:304px " alt="Product image">
                             <div class="card-body">
                             <h5>{{$prod->name}}</h5>
                             <span class="float-start">{{$prod->selling_price}}</span>

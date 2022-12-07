@@ -15,7 +15,7 @@
                         <div class="col-md-3 mb=3">
                             <a href="{{ url('view-category/' .$categ->slug )}}" >
                             <div class="card">
-                                <img src="{{asset('assets/uploads/category/' .$categ->image)}}" height="230px" width="260px" alt="Category image">
+                                <img src="{{asset('assets/uploads/category/' .$categ->image)}}" height="230px" width="304px" alt="Category image">
                                 <div class="card-body">
                                     <h5>{{$categ->name}}</h5>
                                    <p> 

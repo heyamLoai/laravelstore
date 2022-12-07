@@ -11,7 +11,10 @@
 
                     <div class="card">
                         <div class="card-header bg-primary">
-                            <h4 class="text-white" > My Orders</h4>
+                            <h4 class="text-white" > New Orders
+
+                                <a href="{{'order-history'}}" class="btn btn-warning float-end"> Order History</a>
+                            </h4>
                         </div>
                         <div class="card-body">
                             <table class="table table-bordered">
@@ -35,7 +38,7 @@
                                             <td>{{ $item->status == '0' ? 'pending' : 'completed'}}</td>
 
                                             <td>
-                                                <a href="{{url('view-order/' .$item->id)}}" class="btn btn-primary"> View</a>
+                                                <a href="{{url('admin/view-order/' .$item->id)}}" class="btn btn-primary"> View</a>
                                             </td>
         
                                         </tr>
